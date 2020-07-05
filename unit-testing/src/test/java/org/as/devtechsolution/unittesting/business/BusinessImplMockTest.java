@@ -1,22 +1,29 @@
 package org.as.devtechsolution.unittesting.business;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import org.as.devtechsolution.unittesting.service.BusinessDataService;
-import org.junit.Before;
-import org.junit.Test;;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnitRunner;;
 
+@RunWith(MockitoJUnitRunner.class)
 public class BusinessImplMockTest {
 
-	BusinessImpl business = new BusinessImpl();
-	BusinessDataService dataServiceMock = mock(BusinessDataService.class);
+	/*
+	 * BusinessImpl business = new BusinessImpl(); BusinessDataService
+	 * dataServiceMock = mock(BusinessDataService.class);
+	 * 
+	 * @Before public void before() { business.setDataService(dataServiceMock); }
+	 */
 
-	@Before
-	public void before() {
-		business.setDataService(dataServiceMock);
-	}
+	@InjectMocks
+	BusinessImpl business;
+	@Mock
+	BusinessDataService dataServiceMock;
 
 	@Test
 	public void calculateSumUsingDataService_basic() {
